@@ -37,7 +37,6 @@ class CustomTabItem extends StatelessWidget {
             label,
             style: TextStyle(
               color: isActive ? Colors.white : Colors.black,
-              fontSize: 24,
             ),
           ),
         ),
