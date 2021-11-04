@@ -8,12 +8,22 @@ class CustomDataPage {
   CustomDataPage(this.title, this.page);
 }
 
-var pagesList = [
-  CustomDataPage("Home", const CustomPage(title: "Home")),
-  CustomDataPage("Bookmark", const CustomPage(title: "Bookmark")),
-  CustomDataPage("Transactions", const CustomPage(title: "Transactions")),
-  CustomDataPage("Profile", const CustomPage(title: "Profile")),
-  CustomDataPage("Games", const CustomPage(title: "Games")),
-  CustomDataPage("History", const CustomPage(title: "History")),
-  CustomDataPage("Fly", const CustomPage(title: "Fly")),
+const words = [
+  "Home",
+  "Bookmarks",
+  "Transactions",
+  "Profile",
+  "Game",
+  "Top Up",
+  "History",
+  "Gameplay",
+  "Tutorial",
+  "About Us",
+  "How",
+  "Help",
+  "Version"
 ];
+
+var pagesList = words.map((e) {
+  return CustomDataPage(e, CustomPage(title: e));
+}).toList();
