@@ -4,15 +4,15 @@ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
-void setup() async {
+Future<void> setup() async {
   await dotenv.load(fileName: ".env");
-  getIt.registerLazySingleton<Dio>(() => setupDio());
-}
-
-Dio setupDio() {
-  var dio = Dio();
-  dio.options = BaseOptions(
-    baseUrl: dotenv.env['API_URL'] ?? '',
+  getIt.registerSingleton<Dio>(
+    Dio(
+      BaseOptions(
+        baseUrl: dotenv.env['API_URL'] ?? '',
+        connectTimeout: 5000,
+        receiveTimeout: 3000,
+      ),
+    ),
   );
-  return dio;
 }

@@ -5,7 +5,7 @@ import 'package:ui/tab/screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setup();
+  await setup();
   runApp(const Application());
 }
 

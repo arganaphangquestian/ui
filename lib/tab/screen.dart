@@ -32,11 +32,23 @@ class CustomScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Center(
-              child: Obx(
-                () => Text(
-                  "Hello Cok = ${pagesList[c.selectedPage.value].title}",
-                ),
+            child: Obx(
+              () => ListView.builder(
+                itemBuilder: (ctx, idx) {
+                  return Card(
+                    elevation: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 16),
+                      child: Obx(
+                        () => Text(
+                          '${c.todos[idx].title} - ${c.todos[idx].completed ? "Completed" : "Incompleted"}',
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: c.todos.length,
               ),
             ),
           ),
